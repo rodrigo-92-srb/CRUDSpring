@@ -22,5 +22,10 @@ public class CourseController {
         return courseRepository.findAll();
     }
 
+    @PostMapping
+    public ResponseEntity<Course> create(@RequestBody Course course){
+        return ResponseEntity.status(HttpStatus.CREATED).body(courseRepository.save(course));
+    }
+
 
 }
